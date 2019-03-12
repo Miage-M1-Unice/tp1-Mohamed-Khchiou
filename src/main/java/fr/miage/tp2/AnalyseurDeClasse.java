@@ -18,13 +18,13 @@ public class AnalyseurDeClasse {
 
     afficheEnTeteClasse(cl);
 
-    System.out.println("// Champs");
+    System.out.println("\t// Champs");
     afficheAttributs(cl);
 
-    System.out.println("// Constructeurs");
+    System.out.println("\t// Constructeurs");
     afficheConstructeurs(cl);
 
-    System.out.println("// Méthodes");
+    System.out.println("\t// Méthodes");
     afficheMethodes(cl);
 
     // L'accolade fermante de fin de classe !
@@ -64,21 +64,21 @@ public class AnalyseurDeClasse {
 
   public static void afficheAttributs(Class cl) {
     for (Field f : cl.getDeclaredFields()) {
-      System.out.println(Modifier.toString(f.getModifiers()) + " "+ f.getType().toString() +" " + f.getName()+";");
+      System.out.println("\t"+Modifier.toString(f.getModifiers()) + " "+ f.getType().toString() +" " + f.getName()+";");
     }
     System.out.println("\n");
   }
 
   public static void afficheConstructeurs(Class cl) {
     for (Constructor c :cl.getConstructors()) {
-      System.out.println(c.toString()+";");
+      System.out.println("\t"+c.toString()+";");
     }
     System.out.println("\n");
   }
 
   public static void afficheMethodes(Class cl) {
     for (Method m :cl.getDeclaredMethods()) {
-      System.out.print(Modifier.toString(m.getModifiers()) + " "+ m.getReturnType().toString() +" " + m.getName() + "(");
+      System.out.print("\t"+Modifier.toString(m.getModifiers()) + " "+ m.getReturnType().toString() +" " + m.getName() + "(");
       int i = 1;
       for (Parameter p: m.getParameters()) {
         System.out.print(p.getType().toString());
